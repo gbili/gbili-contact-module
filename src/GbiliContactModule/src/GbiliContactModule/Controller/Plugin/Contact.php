@@ -19,11 +19,11 @@ class Contact extends \Zend\Mvc\Controller\Plugin\AbstractPlugin
      */
     public function __invoke(array $routeSuccessParams)
     {
-        $controller = $controller->getController();
+        $controller = $this->getController();
 
         $em      = $controller->em();
-        $sm      = $controller->sm();
-        $request = $controller->request;
+        $sm      = $controller->getServiceLocator();
+        $request = $controller->getRequest();
         $locale  = $controller->locale();
 
         $config = $sm->get('Config');
@@ -56,6 +56,8 @@ class Contact extends \Zend\Mvc\Controller\Plugin\AbstractPlugin
         }
 
         $message->setLocale($locale); //what is the interface language...
+
+        $message->setDate(new \DateTime());
         $em->persist($message);
         $em->flush();
 

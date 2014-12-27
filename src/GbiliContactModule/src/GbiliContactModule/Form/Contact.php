@@ -10,7 +10,7 @@ class Contact extends \Zend\Form\Form
         $config = $sm->get('Config');
         $fieldsetClassname = (isset($config['gbili_contact_module']['message_fieldset_class']))
             ? $config['gbili_contact_module']['message_fieldset_class']
-            : 'Fieldset\Default';
+            : __NAMESPACE__ . '\Fieldset\DefaultMessage';
  
         $contactFieldset = new $fieldsetClassname($sm);
         $contactFieldset->setUseAsBaseFieldset(true);

@@ -11,7 +11,7 @@ implements \Zend\InputFilter\InputFilterProviderInterface
         $objectManager = $sm->get('Doctrine\ORM\EntityManager');
 
         $this->setHydrator(new \DoctrineModule\Stdlib\Hydrator\DoctrineObject($objectManager))
-             ->setObject(new \Contact\Entity\DefaultMessage());
+             ->setObject(new \GbiliContactModule\Entity\DefaultMessage());
         
         $this->add(array(
             'name' => 'id',
@@ -162,7 +162,7 @@ implements \Zend\InputFilter\InputFilterProviderInterface
                         'options' => array(
                             'encoding' => 'UTF-8',
                             'min'      => 1,
-                            'max'      => 1,
+                            'max'      => 255,
                         ),
                     ),
                 ),
