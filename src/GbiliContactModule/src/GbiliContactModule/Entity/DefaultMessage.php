@@ -4,7 +4,7 @@ namespace GbiliContactModule\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- *  
+ * @ORM\Entity 
  * @ORM\Table(name="gbili_contact_module_default_message")
  */
 class DefaultMessage 
