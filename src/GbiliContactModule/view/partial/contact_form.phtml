@@ -11,9 +11,11 @@ $textdomain = prev($fileparts);
 $this->formActionPrepare($form) ?>
 
 <?php
-$title = (isset($this->title))
-    ? $this->title
-    : ucfirst($action) . ' ' . ucfirst($controller);
+if (!isset($title)) {
+    $title = (isset($this->title))
+        ? $this->title
+        : ucfirst($action) . ' ' . ucfirst($controller);
+}
 
 $this->headTitle($title);
 ?>

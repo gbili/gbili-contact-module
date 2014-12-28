@@ -26,7 +26,7 @@ class Contact extends \Zend\Form\Form
             'name' => 'submit',
             'attributes' => array(
                 'type'  => 'submit',
-                'value' => 'Save',
+                'value' => 'Send',
                 'id' => 'submitbutton',
                 'class' => 'btn btn-primary', 
             ),
