@@ -27,6 +27,11 @@ class DefaultMessage
     private $lastname;
 
     /**
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
+
+    /**
      * @ORM\Column(name="company", type="string", length=64)
      */
     private $company;
@@ -86,6 +91,17 @@ class DefaultMessage
     {
         return $this->lastname;
     }
+
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
 
     public function setBody($body)
     {

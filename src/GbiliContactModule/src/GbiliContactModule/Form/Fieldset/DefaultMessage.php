@@ -26,7 +26,7 @@ implements \Zend\InputFilter\InputFilterProviderInterface
             ),
             'attributes' => array(
                 'class' => 'form-control',
-                'placeholder' => 'Your firstname',
+                'placeholder' => 'Johnny',
             )
         ));
 
@@ -38,7 +38,19 @@ implements \Zend\InputFilter\InputFilterProviderInterface
             ),
             'attributes' => array(
                 'class' => 'form-control',
-                'placeholder' => 'and your lastname',
+                'placeholder' => 'De Vito',
+            )
+        ));
+
+        $this->add(array(
+            'name' => 'email',
+            'type'  => 'Zend\Form\Element\Email',
+            'options' => array(
+                'label' => 'Email'
+            ),
+            'attributes' => array(
+                'class' => 'form-control',
+                'placeholder' => 'johnny.devito@example.com',
             )
         ));
 
@@ -121,6 +133,27 @@ implements \Zend\InputFilter\InputFilterProviderInterface
                     array('name' => 'StringTrim'),
                 ),
                 'validators' => array(
+                    array(
+                        'name'    => 'StringLength',
+                        'options' => array(
+                            'encoding' => 'UTF-8',
+                            'min'      => 1,
+                            'max'      => 255,
+                        ),
+                    ),
+                ),
+            ),
+
+            'email' => array(
+                'required' => true,
+                'filters'  => array(
+                    array('name' => 'StripTags'),
+                    array('name' => 'StringTrim'),
+                ),
+                'validators' => array(
+                    array(
+                        'name'    => 'EmailAddress',
+                    ),
                     array(
                         'name'    => 'StringLength',
                         'options' => array(
