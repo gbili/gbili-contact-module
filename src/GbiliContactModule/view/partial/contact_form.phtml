@@ -16,18 +16,25 @@ if (!isset($title)) {
         ? $this->title
         : ucfirst($action) . ' ' . ucfirst($controller);
 }
+if (!isset($bsCols)) {
+    $bsCols = array(
+        'sm' => 12, 
+        'md' => 12, 
+        'lg' => 12, 
+    );
+}
 
 $this->headTitle($title);
 ?>
 <header class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
+        <div class="col-sm-<?= $bsCols['sm'] ?> col-md-<?= $bsCols['md'] ?> col-lg-<?= $bsCols['lg'] ?>">
         <h3><?php echo $this->escapeHtml($this->translate($title)) ?></h3>
     </div>
 </header>
 <?php $elements = $this->elementsFlatArray($form) ?>
 <?= $this->form()->openTag($form) ?>
     <div class="row">
-        <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="col-sm-<?= $bsCols['sm'] ?> col-md-<?= $bsCols['md'] ?> col-lg-<?= $bsCols['lg'] ?>">
             <?php foreach ($elements as $element) : ?>
                 <?= $this->renderElement($element) ?>
             <?php endforeach ?>
