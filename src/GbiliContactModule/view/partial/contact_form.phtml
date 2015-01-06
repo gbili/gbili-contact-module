@@ -8,6 +8,7 @@ $action = substr(end($fileparts), 0, -6);
 $controller = prev($fileparts); 
 $textdomain = prev($fileparts);
 
+$this->renderElement()->setFirstRendering(!$form->hasValidated());
 $this->formActionPrepare($form) ?>
 
 <?php
