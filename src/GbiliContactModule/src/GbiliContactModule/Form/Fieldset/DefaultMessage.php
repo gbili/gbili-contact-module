@@ -92,7 +92,7 @@ implements \Zend\InputFilter\InputFilterProviderInterface
             ),
             'attributes' => array(
                 'class' => 'form-control',
-                'rows' => '8',
+                'rows' => '4',
                 'placeholder' => 'Your message here...',
             )
         ));
