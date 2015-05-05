@@ -17,7 +17,7 @@ class Messages extends \Zend\Mvc\Controller\Plugin\AbstractPlugin
      * Contact Form Action 
      * @return mixed
      */
-    public function __invoke(array $routeSuccessParams)
+    public function __invoke()
     {
         $controller = $this->getController();
 
@@ -31,7 +31,7 @@ class Messages extends \Zend\Mvc\Controller\Plugin\AbstractPlugin
             ? $config['gbili_contact_module']['message_entity_class']
             : '\GbiliContactModule\Entity\DefaultMessage';
 
-        return new \Zend\View\Model([
+        return new \Zend\View\Model\ViewModel([
             'messages' => $em->getRepository($messageEntityClass)->findAll(),
         ]);
     }
