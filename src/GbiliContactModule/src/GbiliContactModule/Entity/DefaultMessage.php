@@ -160,4 +160,18 @@ class DefaultMessage
     {
         return $this->date;
     }
+
+    public function toArray()
+    {
+        return array(
+            'locale' => $this->getLocale(),
+            'date' => $this->getDate()->format('Y-m-d H:i:s'),
+            'firstname' => $this->getFirstname(),
+            'lastname' => $this->getLastname(),
+            'email' => $this->getEmail(),
+            'company' => $this->getCompany(),
+            'service' => $this->getService(),
+            'body' => $this->getBody(),
+        );
+    }
 }
